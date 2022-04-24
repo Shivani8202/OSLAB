@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Scan Algorithm</title>
+    <link rel="stylesheet" href="../../css/styleSub.css">
+</head>
+
+<body>
+    <div class="progress"></div>
+
+    <!--  navbar -->
+    <div class="nav">
+        <nav class="nav-bar">
+            <a class="nav-link" href="../../index.html">Home</a>
+            <a class="nav-link" href="../FCFS/FCFS.html">FCFS</a>
+            <a class="nav-link" href="../SSTF/SSTF.html">SSTF</a>
+            <a class="nav-link" href="../Scan/Scan.html">Scan</a>
+            <a class="nav-link" href="../Look/Look.html">Look</a>
+        </nav>
+    </div>
+
+    <div class="main">
+
+        <!-- Heading + Content -->
+        <div class="content">
+            <div class="heading">
+                <h1 id="h-scan">SCAN</h1>
+            </div>
+            <div class="algo-btn">
+                <a class="algo-link" href="./Simulator.html">Algorithm</a>
+            </div>
+
+            <div class="text">
+                <p>In SCAN disk scheduling algorithm, head starts from one end of the disk and moves towards the other
+                    end, servicing requests in between one by one and reach the other end. Then the direction of the
+                    head is reversed and the process continues as head continuously scan back and forth to access the
+                    disk. So, this algorithm works as an elevator and hence also known as the elevator algorithm. As a
+                    result, the requests at the midrange are serviced more and those arriving behind the disk arm will
+                    have to wait.</p>
+
+                <h3>Advantages of SCAN algorithm </h3>
+                <ol>
+                    <li> This algorithm is simple and easy to understand.</li>
+                    <li> SCAN algorithm have no starvation.</li>
+                    <li> This algorithm is better than FCFS Scheduling algorithm . </li>
+                </ol>
+
+                <h3>Disadvantages of SCAN algorithm </h3>
+                <ol>
+                    <li> More complex algorithm to implement.</li>
+                    <li> This algorithm is not fair because it cause long waiting time for the cylinders just visited by
+                        the head.</li>
+                    <li> It causes the head to move till the end of the disk in this way the requests arriving ahead of
+                        the arm position would get immediate service but some other requests that arrive behind the arm
+                        position will have to wait for the request to complete.</li>
+                </ol>
+
+                <h3>Algorithm: </h3>
+                <ol>
+                    <li> Let Request array represents an array storing indexes of tracks that have been requested in
+                        ascending order of their time of arrival. ‘head’ is the position of disk head.</li>
+                    <li> Let direction represents whether the head is moving towards left or right.</li>
+                    <li> In the direction in which head is moving service all tracks one by one.</li>
+                    <li> Calculate the absolute distance of the track from the head.</li>
+                    <li> Increment the total seek count with this distance.</li>
+                    <li> Currently serviced track position now becomes the new head position.</li>
+                    <li> Go to step 3 until we reach at one of the ends of the disk.</li>
+                    <li> If we reach at the end of the disk reverse the direction and go to step 2 until all tracks in
+                        request array have not been serviced.</li>
+                </ol>
+
+                <h3>Example: </h3>
+                <h4>Input: </h4>
+                <p>Request sequence = {176, 79, 34, 60, 92, 11, 41, 114}</p>
+                <p>Initial head position = 50</p>
+                <p>Direction = left (We are moving from right to left)</p>
+
+                <h4>Output: </h4>
+                <p>Total number of seek operations = 226</p>
+                <p>Seek Sequence is</p>
+
+                <div class="array">
+                    <p class="numbers">41</p>
+                    <p class="numbers">34</p>
+                    <p class="numbers">11</p>
+                    <p class="numbers">0</p>
+                    <p class="numbers">60</p>
+                    <p class="numbers">79</p>
+                    <p class="numbers">92</p>
+                    <p class="numbers">114</p>
+                    <p class="numbers">176</p>
+                </div>
+
+                <img src="./Graph.jpg" alt="">
+                <p>Therefore, the total seek count is calculated as:
+                <p>= (50-41)+(41-34)+(34-11)
+                    +(11-0)+(60-0)+(79-60)
+                    +(92-79)+(114-92)+(176-114)</p>
+
+                <p>= 226 </p>
+                </p>
+            </div>
+        </div>
+</body>
+
+</html>

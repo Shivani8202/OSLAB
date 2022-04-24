@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Introduction</title>
+    <link rel="stylesheet" href="../../css/styleSub.css">
+</head>
+
+<body>
+    <div class="progress"></div>
+
+    <!--  navbar -->
+    <div class="nav">
+        <nav class="nav-bar">
+            <a class="nav-link" href="../Home/index.html">Home</a>
+            <a class="nav-link" href="../FCFS/FCFS.html">FCFS</a>
+            <a class="nav-link" href="../SSTF/SSTF.html">SSTF</a>
+            <a class="nav-link" href="../Scan/Scan.html">Scan</a>
+            <a class="nav-link" href="../Look/Look.html">Look</a>
+        </nav>
+    </div>
+
+    <div class="main">
+
+        <!-- Heading + Content -->
+        <div class="content">
+            <div class="heading">
+                <h1 id="h-intro">INTRODUCTION</h1>
+            </div>
+            <div class="text">
+                <p>
+                    Magnetic disks provide the bulk of secondary storage for modern computer systems.
+                    Each disk <b>platter</b> has a flat circular shape, like a CD. Common platter diameters range from
+                    1.8 to 5.25 inches. The two surfaces of a platter are covered with a magnetic material. We store
+                    information by recording it magnetically on the platters.
+                </p>
+                <p>
+                    A <b>read-write head</b> "flies" just above each surface of every platter. The heads are
+                    attached to a <b>disk arm</b>, which moves all the heads as a unit. The surface of a platter is
+                    logically divided into circular <b>tracks</b>, which are subdivided into <b>sectors</b>. The set of
+                    tracks that
+                    are at one arm position forms a <b>cylinder</b>. There may be thousands of concentric cylinders in a
+                    disk drive, and each track may contain hundreds of sectors. The storage capacity of common
+                    disk drives is measured in gigabytes.
+                </p>
+                <img src="./diskA.png" alt="Disk Architecture">
+                <h3>Structure of Magnetic disks (Hard disk drive)</h3>
+                <p>
+                    When the disk is in use, a drive motor spins it at high speed. Most drives rotate 60 to
+                    200 times per second. Disk speed has two parts. The <b>transfer rate</b> is the rate at which data
+                    flow between the drive and the computer. The <b>positioning time (or random-access time)</b>
+                    consists of <b>seek time</b> and <b>rotational latency</b>. The <b>seek time</b> is the time to move
+                    the disk arm
+                    to the desired cylinder. And the <b>rotational latency</b> is the time for the desired sector to
+                    rotate
+                    to the disk head. Typical disks can transfer several megabytes of data per second and they
+                    have seek times and rotational latencies of several milliseconds.
+                </p>
+
+                <p>
+                <h3>Capacity of Magnetic disks(C) = S x T x P x N</h3>
+                <h5>Where,<br> S = no. of surfaces = 2 x no. of disks, <br>T = no. of tracks in a surface,
+                    <br>P = no. of sectors per track,<br> N = size of each sector
+                </h5>
+                <h3>Transfer Time: T = b / (r x N)</h3>
+                <h5>The transfer time to or from the disk depends on the rotation speed of the
+                    disk in the following fashion:<br>
+                    Where, T = transfer time,<br> b =number of bytes to be transferred,<br> N = number of bytes on a
+                    track,<br>
+                    r = rotation speed, in revolutions per second.</h5>
+
+                Modern disk drives are addressed as large one-dimensional arrays of logical blocks,
+                where the <b>logical block</b> is the smallest unit of transfer. The one-dimensional array of logical
+                blocks is mapped onto the sectors of the disk sequentially. Sector 0 is the first sector of the
+                first track on the outermost cylinder. The mapping proceeds in order through that track, then
+                through the rest of the tracks in that cylinder, and then through the rest of the cylinders from
+                outermost to innermost.
+                <br><br>
+                By using this mapping, we can convert a logical block number into an old-style disk
+                address that consists of a cylinder number, a track number within that cylinder, and a sector
+                number within that track. In practical, it is difficult to perform this translation, for two
+                reasons. First, most disks have some defective sectors, but the mapping hides this by
+                substituting spare sectors from elsewhere on the disk. Second, the number of sectors per track
+                is not a constant on some drives.
+                <br><br>
+                The density of bits per track is uniform. This is called <b>Constant linear velocity (CLV)</b>.
+                The disk rotation speed can stay constant and the density of bits decreases from inner tracks
+                to outer tracks to keep the data rate constant. This method is used in hard disks and is known
+                as <b>constant angular velocity (CAV)</b>.
+                <br>
+                <h3>Disk Scheduling</h3>
+                The <b>seek time</b> is the time for the disk arm to move the heads to the cylinder containing
+                the desired sector. The <b>rotational latency</b> is the time waiting for the disk to rotate the desired
+                sector to the disk head. The <b>disk bandwidth</b> is the total number of bytes transferred divided
+                by the total time between the first request for service and the completion of the last transfer.
+                <br><br>
+                We can improve both the access time and the bandwidth by scheduling the servicing of
+                disk I/O requests in a good order. Several algorithms exist to schedule the servicing of disk
+                I/O requests as follows:
+                </p>
+            </div>
+
+        </div>
+
+        <!-- Simulator -->
+    </div>
+    <script src="js/bootstrap.bundle.min.js"></script>
+</body>
+
+</html>

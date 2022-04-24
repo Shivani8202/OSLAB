@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Shortest Seek Time First</title>
+    <link rel="stylesheet" href="../../css/styleSub.css">
+</head>
+
+<body>
+    <div class="progress"></div>
+
+    <!--  navbar -->
+    <div class="nav">
+        <nav class="nav-bar">
+            <a class="nav-link" href="../../index.html">Home</a>
+            <a class="nav-link" href="../FCFS/FCFS.html">FCFS</a>
+            <a class="nav-link" href="../SSTF/SSTF.html">SSTF</a>
+            <a class="nav-link" href="../Scan/Scan.html">Scan</a>
+            <a class="nav-link" href="../Look/Look.html">Look</a>
+        </nav>
+    </div>
+
+    <div class="main">
+
+        <!-- Heading + Content -->
+        <div class="content">
+            <div class="heading">
+                <h1 id="h-sstf">SHORTEST SEEK TIME FIRST</h1>
+            </div>
+            <div class="algo-btn">
+                <a class="algo-link" href="./Simulator.html">Algorithm</a>
+            </div>
+
+
+            <div class="text">
+                <p>It selects the request which is closest to the current head position before moving the head away to
+                    service other requests. This is done by selecting the request which has the least seek time from the
+                    current head position.</p>
+
+                <h3>Advantages of Shortest Seek Time First</h3>
+                <ol>
+                    <li>Better performance than FCFS scheduling algorithm.</li>
+                    <li>It provides better throughput.</li>
+                    <li>This algorithm is used in Batch Processing system where throughput is more important.</li>
+                    <li>It has less average response and waiting time.</li>
+                </ol>
+
+                <h3>Disadvantages of Shortest Seek Time </h3>
+                <ol>
+                    <li>Let Request array represents an array storing indexes of tracks that have been requested. ‘head’
+                        is the position of disk head.</li>
+                    <li>Find the positive distance of all tracks in the request array from head.</li>
+                    <li>Find a track from requested array which has not been accessed/serviced yet and has minimum
+                        distance from head.</li>
+                    <li>Increment the total seek count with this distance.</li>
+                    <li>Currently serviced track position now becomes the new head position.</li>
+                    <li>Go to step 2 until all tracks in request array have not been serviced.</li>
+                </ol>
+
+                <h3>Examples: </h3>
+                <h4>Input: </h4>
+                <p>Request sequence = {176, 79, 34, 60, 92, 11, 41, 114}</p>
+                <p>Initial head position = 50</p>
+
+                <h4>Output:</h4>
+                <p>Total number of seek operations = 204</p>
+                <p>Seek Sequence is</p>
+
+                <div class="array">
+                    <p class="numbers">41</p>
+                    <p class="numbers">34</p>
+                    <p class="numbers">11</p>
+                    <p class="numbers">60</p>
+                    <p class="numbers">79</p>
+                    <p class="numbers">92</p>
+                    <p class="numbers">114</p>
+                    <p class="numbers">176</p>
+                </div>
+
+                <p>The following chart shows the sequence in which requested tracks are serviced using SSTF.</p>
+                <img src="./Graph.png" alt="" style="width:50vw">
+
+                <p>Therefore, total seek count is calculated as:</p>
+                <p>= (50-41)+(41-34)+(34-11)+(60-11)+(79-60)+(92-79)+(114-92)+(176-114)</p>
+                <p>= 204</p>
+            </div>
+        </div>
+</body>
+
+</html>
