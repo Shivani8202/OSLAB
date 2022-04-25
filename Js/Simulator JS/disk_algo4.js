@@ -44,8 +44,8 @@ function Calculate() {
     } else if (isNaN(inputHeadPos)) {
         showError(errorMessage, "Only Numeric value allowed for current Head position !!!");
         isValidInput = false;
-    } else if (parseInt(inputHeadPos) < 0 || parseInt(inputHeadPos) > 199) {
-        showError(errorMessage, "Current Head position value must be in between 1-199");
+    } else if (parseInt(inputHeadPos) < 0 || parseInt(inputHeadPos) > 499) {
+        showError(errorMessage, "Current Head position value must be in between 1-499");
         isValidInput = false;
     } else if (inputNumbersString == "") {
         showError(errorMessage, "Numeric values required for Queue");
@@ -55,13 +55,15 @@ function Calculate() {
             if (isNaN(number)) {
                 showError(errorMessage, "Number queue must only contain numbers");
                 isValidInput = false;
-            } else if (parseInt(number) < 0 || parseInt(number) > 199) {
-                showError(errorMessage, "Number queue values must be in the range of 1-199");
+            }
+             else if (parseInt(number) < 0 || parseInt(number) > 499) {
+                showError(errorMessage, "Number queue values must be in the range of 1-499");
                 isValidInput = false;
             }
         });
     }
 
+    if(isValidInput){
     if (direction === "right")
     {
         // var graphType = document.getElementById("chartType").value;
@@ -173,6 +175,7 @@ function Calculate() {
             printImage();
         });   
     }
+}
 }
 
 function printImage()
